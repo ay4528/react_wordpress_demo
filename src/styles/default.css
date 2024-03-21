@@ -1,0 +1,61 @@
+html {
+    font-size: 100%;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0px;
+}
+
+a:link {
+    color: #004CCA;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #6219DB;
+}
+
+a:hover {
+    color: #048ADE;
+    text-decoration: none;
+}
+
+a:active {
+    color: #048ADE;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+    height: auto;
+}
+
+ul {
+    padding: 0px;
+    list-style: none;
+    margin: 0;
+}
+
+.sp {
+    display: none;
+}
+
+@media (max-width: 750px) {
+    .pc {
+        display: block;
+    }
+
+    .sp {
+        display: none;
+    }
+}
