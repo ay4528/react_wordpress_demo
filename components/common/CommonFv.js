@@ -18,8 +18,8 @@ const CommonFv = (props) => {
 
 			<div className="common_page_h1Box">
 				<div className="wrap02">
-					<p className="common_page_sub_h1 arial_font">{subtitle}</p>
-					<h1 className="common_page_h1">{title}</h1>
+					<h1 className="common_page_sub_h1">{title}</h1>
+					<p className="common_page_h1 arial_font">{subtitle}</p>
 				</div>
 			</div>
 		</>
