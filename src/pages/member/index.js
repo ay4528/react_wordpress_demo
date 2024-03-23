@@ -14,7 +14,7 @@ const Member = () => {
 			<PageLayout>
 				<div className="page_member common_page_team">
 					<div className="wrap02">
-						<ul className="member_list flex">
+						<ul className="member_list">
 							<li>
 								<div className="image">
 									<Image src="/member_mitsuda.jpg" width={420} height={560} alt="光田 亮介" />
