@@ -52,6 +52,65 @@ body {
     letter-spacing: 2px;
 }
 
+.common_button {
+    width: 270px;
+    height: 50px;
+    margin: 50px auto 0;
+}
+
+.common_button a {
+    display: block;
+    color: #222;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 30px;
+    line-height: 50px;
+    background-color: #fff;
+    box-shadow: 1px 1px 2px 2px rgb(0 0 0 / 10%);
+    overflow: hidden;
+    transition: 0.2s;
+    position: relative;
+    z-index: 1;
+}
+
+.common_button a::before {
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    background-color: #222;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: -1;
+    transition: 0.2s;
+}
+
+.common_button a::after {
+    display: block;
+    content: "＋";
+    position: absolute;
+    top: 0;
+    right: 30px;
+    bottom: 0;
+    margin: auto;
+    z-index: -1;
+    transition: 0.2s;
+}
+
+.common_button a:hover {
+    color: #fff;
+}
+
+.common_button a:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
 /* PCヘッダー */
 .top_header {
     padding: 40px 0;
@@ -1306,8 +1365,470 @@ table.detail_table td a {
     opacity: 1;
 }
 
+/* 個人情報保護方針 */
+.privacy_text {
+    font-size: 16px;
+    line-height: 2;
+    text-align: justify;
+    margin: 0 0 70px;
+    color: #7c7c7c;
+}
+
+.privacy_dl {
+    padding: 70px 0 0;
+    margin: 0;
+    position: relative;
+}
+
+.privacy_dl::before {
+    display: block;
+    content: "";
+    width: 80px;
+    height: 2px;
+    background-color: #222;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.privacy_dl dt {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+}
+
+.privacy_dl dd {
+    font-size: 16px;
+    line-height: 2;
+    color: #7c7c7c;
+    margin: 0 0 40px;
+}
+
+.privacy_contact {
+    background-color: #f8f8f8;
+    padding: 40px;
+    width: 750px;
+    text-align: center;
+    margin: 70px auto 0;
+    line-height: 2;
+}
+
+.privacy_contact .text {
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+
+.privacy_contact .title {
+    font-size: 16px;
+    margin: 0 0 20px;
+}
+
+.privacy_contact .title span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.privacy_contact .tel {
+    font-size: 14px;
+    font-weight: 300;
+    color: #484848;
+}
+
+.privacy_contact .tel a {
+    display: inline-block;
+    color: #484848;
+    pointer-events: none;
+}
+
+.privacy_contact .mail {
+    font-size: 14px;
+    font-weight: 300;
+    color: #484848;
+}
+
+.privacy_contact .common_button {
+    margin-top: 20px;
+}
+
+/* サイトマップ */
+#sitemap_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+#sitemap_list li a {
+    display: block;
+    color: #222;
+    border: 2px solid #f8f8f8;
+    font-size: 16px;
+    padding: 10px 10px 10px 45px;
+    background-image: url(/button_icon01.png);
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: left 15px center;
+    transition: 0.2s;
+}
+
+#sitemap_list li:nth-of-type(odd) a {
+    background-color: #f8f8f8;
+}
+
+#sitemap_list li a:hover {
+    box-shadow: 1px 1px 4px 1px rgb(119, 119, 119, 0.1);
+}
+
 @media (max-width: 750px) {
-    .body {
+    body {
+        padding-top: 50px;
+    }
+
+    .wrap,
+    .wrap02 {
+        max-width: 92%;
+        width: 100%;
+    }
+
+    .common_h2_box {
+        margin: 0 0 6vw;
+    }
+
+    .common_sub_h2 {
+        font-size: 25px;
+        margin: 0 0 2vw;
+    }
+
+    .common_h2 {
         font-size: 13px;
+        letter-spacing: 1px;
+    }
+
+    /* SPヘッダー */
+    .sp_hd {
+        height: 50px;
+        background-color: #fff;
+        box-shadow: 0 1px rgb(0 0 0 / 10%);
+        padding: 5px;
+        position: fixed;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+    }
+
+    .sp_hd_logo {
+        position: absolute;
+        width: 107px;
+        top: 50%;
+        left: 12px;
+        translate: 0 -50%;
+    }
+
+    .sp_hd_logo a {
+        display: block;
+    }
+
+    /* SPトップページ FV */
+    .top_main {
+        padding: 41vw 0 15vw;
+    }
+
+    .top_h1 {
+        width: 80%;
+        margin-left: 4%;
+    }
+
+    .top_video {
+        margin-top: -3.4vw;
+        margin-right: 6%;
+        overflow: hidden;
+        height: 90vw;
+        position: relative;
+    }
+
+    .top_video video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .top_video .top_copy {
+        font-size: 12px;
+        top: 25%;
+        right: 4%;
+        width: 150px;
+    }
+
+    .top_main::before {
+        width: 100%;
+        height: 66%;
+    }
+
+    .top_main_text_box {
+        width: 92%;
+        margin: -6.8vw auto 0;
+        padding-left: 10%;
+    }
+
+    .top_h2 {
+        font-size: 11vw;
+        letter-spacing: 1px;
+        margin: 0 0 4vw;
+    }
+
+    .top_text {
+        font-size: 13px;
+        line-height: 2;
+    }
+
+    .top_sub_h1 {
+        width: 12%;
+        top: 10vw;
+        right: 4%;
+    }
+
+    /* SPトップページ チーム紹介 */
+    .top_team {
+        padding: 25vw 0 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .top_team .wrap {
+        width: 85%;
+        overflow: visible;
+    }
+
+    .team_h2 {
+        position: absolute;
+        top: 25vw;
+        left: 0;
+        width: 14%;
+        background: #fff;
+        z-index: 10;
+        height: 69vw;
+        margin: 0;
+        padding: 0 0 0 2.5%;
+    }
+
+    .team_h2 img {
+        max-height: 100%;
+    }
+
+    .top_team .slider_box {
+        width: 100%;
+        position: relative;
+    }
+
+    .top_team_slider a .image img {
+        width: 100%;
+        aspect-ratio: 315 / 255;
+        object-fit: cover;
+    }
+
+    .top_team_slider .name {
+        font-size: 18px;
+        letter-spacing: 0;
+        margin: 3vw 0 0;
+        padding-left: 50px;
+    }
+
+    .top_team_slider .name::before {
+        width: 35px;
+    }
+
+    .top_team_slider .pagination {
+        top: -9vw;
+        right: 86%;
+    }
+
+    .top_team_slider .splide__arrows {
+        top: -11vw;
+        right: 50%;
+    }
+
+    /* SPトップページ 採用情報 */
+    .top_recruit .image {
+        width: 100%;
+        margin: 0 0 6vw;
+    }
+
+    .top_recruit .right_box .title {
+        font-size: 18px;
+        margin: 0 0 3vw;
+    }
+
+    .top_recruit .right_box .text {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .top_recruit .right_box {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .top_recruit_button {
+        width: 140px;
+        height: 140px;
+        padding: 42px;
+        top: 35vw;
+        right: 3%;
+    }
+
+    .top_recruit_button a {
+        width: 56px;
+        height: 56px;
+    }
+
+    .top_recruit_button a::before {
+        width: 15px;
+        height: 15px;
+    }
+
+    .top_recruit .right_box .link {
+        margin: 5vw auto 0;
+    }
+
+    .top_recruit {
+        padding: 0;
+    }
+
+    .top_recruit::before {
+        width: 45%;
+        height: 48%;
+        bottom: 52%;
+    }
+
+    .top_recruit .text_box {
+        display: block;
+    }
+
+    /* SPトップページ ブランド */
+    .top_brand {
+        padding: 15vw 0;
+    }
+
+    .top_brand_list li {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 4vw;
+    }
+
+    .top_brand_list.small {
+        justify-content: space-between;
+    }
+
+    .top_brand_list.small li {
+        width: 49%;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 2vw;
+    }
+
+    /* SPフッター  */
+    .footer_contact {
+        padding: 15vw 0;
+    }
+
+    .footer_contact a {
+        width: 250px;
+        height: 250px;
+        padding: 85px 0 0;
+    }
+
+    .footer_contact a .circle {
+        top: -10px;
+        left: -10px;
+        width: 267px;
+        height: 269px;
+    }
+
+    .footer_contact a .title {
+        font-size: 20px;
+        margin: 0 0 10px;
+    }
+
+    .footer_contact a .text {
+        font-size: 12px;
+        line-height: 1.8;
+        letter-spacing: 0;
+    }
+
+    .top_footer {
+        padding: 15vw 0 0;
+    }
+
+    .footer_text_box {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer_logo {
+        margin: 0 0 8vw;
+    }
+
+    .footer_office .tel a {
+        pointer-events: inherit;
+    }
+
+    .footer_office {
+        margin: 0 0 10vw;
+    }
+
+    .top_footer .wrap {
+        padding: 0 0 15vw;
+    }
+
+    .footer_bottom {
+        text-align: center;
+        padding: 15vw 0;
+    }
+
+    .footer_bottom .wrap {
+        display: block;
+        justify-content: normal;
+    }
+
+    .footer_bottom .copyright small {
+        display: block;
+        font-size: 10px;
+    }
+
+    .footer_nav {
+        display: none;
+    }
+
+    .footer_banner {
+        flex-direction: column;
+        gap: 5vw;
+    }
+
+    .footer_partner {
+        width: 100%;
+    }
+
+    .footer_health {
+        width: 70%;
+        margin: auto;
+    }
+
+    .footer_yahoo {
+        width: 70%;
+    }
+
+    .footer_bottom .sub_menu {
+        display: none;
+    }
+
+    .footer_bottom .inner {
+        display: block;
     }
 }

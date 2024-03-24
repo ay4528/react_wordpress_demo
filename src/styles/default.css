@@ -52,10 +52,10 @@ ul {
 
 @media (max-width: 750px) {
     .pc {
-        display: block;
+        display: none;
     }
 
     .sp {
-        display: none;
+        display: block;
     }
 }
