@@ -54,7 +54,6 @@ body {
 
 .common_button {
     width: 270px;
-    height: 50px;
     margin: 50px auto 0;
 }
 
@@ -978,7 +977,7 @@ body {
     display: block;
     content: "";
     width: 10px;
-    height: 10px;
+    aspect-ratio: 1/1;
     background-color: #222;
     border-radius: 50%;
     margin: 30px auto 0;
@@ -1102,7 +1101,7 @@ ul.office_pic_ul li+li {
     display: block;
     content: "";
     width: 12px;
-    height: 12px;
+    aspect-ratio: 1/1;
     background-image: url(/button_icon03.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1175,6 +1174,7 @@ ul.office_pic_ul li+li {
 }
 
 .company_tableBox table {
+    width: 100%;
     margin: 0;
     border-top: 1px solid #eaeaea;
 }
@@ -1259,7 +1259,7 @@ ul.office_pic_ul li+li {
     justify-content: space-between;
 }
 
-p.year_num {
+.history_box .year_num {
     font-size: 100px;
     font-weight: bold;
     color: #ffdb9e;
@@ -1268,11 +1268,11 @@ p.year_num {
     padding-bottom: 30px;
 }
 
-.year {
+.history_box .year {
     width: 250px;
 }
 
-.detail {
+.history_box .detail {
     width: 870px;
     border-left: solid 2px #f8a938;
     padding-left: 30px;
@@ -1299,7 +1299,7 @@ table.detail_table td {
 table.detail_table th:before {
     content: "";
     width: 10px;
-    height: 10px;
+    aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: #f8a938;
     display: block;
@@ -1503,6 +1503,30 @@ table.detail_table td a {
         letter-spacing: 1px;
     }
 
+    .common_button {
+        width: 90%;
+        margin: 6vw auto 0;
+    }
+
+    .common_button a {
+        font-size: 4vw;
+        border-radius: 10vw;
+        line-height: 11vw;
+    }
+
+    .common_button a::after {
+        right: 7vw;
+    }
+
+    .common_button a:hover {
+        color: #222;
+    }
+
+    .common_button a:hover::before {
+        width: 0;
+        height: 0;
+    }
+
     /* SPヘッダー */
     .sp_hd {
         height: 50px;
@@ -1513,7 +1537,7 @@ table.detail_table td a {
         width: 100vw;
         top: 0;
         left: 0;
-        z-index: 10000;
+        z-index: 100;
     }
 
     .sp_hd_logo {
@@ -1526,6 +1550,198 @@ table.detail_table td a {
 
     .sp_hd_logo a {
         display: block;
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 20px;
+        outline: none;
+        position: fixed;
+        top: 15px;
+        right: 10px;
+        z-index: 105;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #222;
+        position: absolute;
+        left: 0;
+        transition: 0.5s ease-in-out;
+    }
+
+    .hamburger span:nth-child(1) {
+        top: 0;
+    }
+
+    .hamburger span:nth-child(2) {
+        top: 9px;
+    }
+
+    .hamburger span:nth-child(3) {
+        top: 18px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        rotate: -315deg;
+    }
+
+    .hamburger.active span:nth-child(2),
+    .hamburger.active span:nth-child(3) {
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        rotate: 315deg;
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .global_menu {
+        width: 100%;
+        height: auto;
+        background: #fff;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        z-index: 105;
+        overflow: scroll;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: .3s;
+    }
+
+    .global_menu.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .global_menu .inner {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 15px;
+    }
+
+    .global_menu .sp_sub_menu {
+        flex-shrink: 0;
+    }
+
+    .global_menu .list {
+        height: 100%;
+    }
+
+    .global_menu .list li a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0 15px;
+        color: #333;
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 41px;
+        position: relative;
+    }
+
+    .global_menu .list li a::before {
+        content: "";
+        width: 12px;
+        aspect-ratio: 1 / 1;
+        background: url(/open_icon.svg) no-repeat;
+        background-size: contain;
+        flex-shrink: 0;
+        display: block;
+    }
+
+    .global_menu .list li .accordion__button {
+        display: flex;
+        align-items: center;
+        gap: 0 15px;
+        color: #333;
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 41px;
+        outline: none;
+    }
+
+    .global_menu .list li .accordion__button::before {
+        content: "";
+        width: 12px;
+        aspect-ratio: 1 / 1;
+        background: url(/open_icon.svg) no-repeat;
+        background-size: contain;
+        flex-shrink: 0;
+        display: block;
+        transition: .4s;
+    }
+
+    .global_menu .list li .accordion__button[aria-expanded="true"]::before {
+        rotate: 45deg;
+    }
+
+    .global_menu .list li.recruit a::after {
+        content: "";
+        width: 14px;
+        aspect-ratio: 1/1;
+        background: url(/button_icon03.png) no-repeat;
+        background-position: center;
+        background-size: 14px;
+        position: absolute;
+        top: 14px;
+        right: -25px;
+    }
+
+    .global_menu .list .menu_second {
+        margin-left: 35px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 10px;
+    }
+
+    .global_menu .list .menu_second li a {
+        line-height: 25px;
+        color: #575757;
+        font-size: 12px;
+        font-weight: 400;
+        gap: 0;
+    }
+
+    .global_menu .list .menu_second li a::before {
+        content: none;
+    }
+
+    .global_menu .sp_sub_menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0 0;
+        padding: 25px 10px 0;
+        border-top: 1px solid #E8E8E8;
+    }
+
+    .global_menu .sp_sub_menu .sub_menu {
+        display: flex;
+        align-items: center;
+        gap: 0 15px;
+    }
+
+    .global_menu .sp_sub_menu .sub_menu a {
+        display: block;
+        font-size: 12px;
+        color: #8E8E8E;
+        font-weight: 700;
+    }
+
+    .global_menu .sp_sub_menu .sp_partner {
+        flex-shrink: 0;
+        width: 47px;
     }
 
     /* SPトップページ FV */
@@ -1830,5 +2046,340 @@ table.detail_table td a {
 
     .footer_bottom .inner {
         display: block;
+    }
+
+    /* SP内部ページ 共通部分 */
+    .breadcrumb {
+        font-size: 3vw;
+        margin-top: 3vw;
+    }
+
+    .common_page_h1Box {
+        padding: 8vw 0;
+    }
+
+    .common_page_sub_h1 {
+        font-size: 4.5vw;
+        margin: 0 0 2vw;
+    }
+
+    .common_page_h1 {
+        font-size: 6vw;
+        letter-spacing: 2px;
+    }
+
+    .common_page_h1::after {
+        width: 1.8vw;
+        margin: 4vw auto 0;
+    }
+
+    .common_page_wrap {
+        padding: 15vw 0;
+    }
+
+    .common_page_h2Box {
+        margin: 0 0 5vw;
+    }
+
+    .common_page_h2Box .common_page_sub_h2 {
+        font-size: 3.5vw;
+        margin: 0;
+        letter-spacing: 0;
+    }
+
+    .common_page_h2Box .common_page_h2 {
+        font-size: 5.3vw;
+    }
+
+    /* チーム紹介 */
+    .team_child_text {
+        font-size: 3.5vw;
+        line-height: 1.7;
+    }
+
+    .team_child_contentsBox {
+        margin: 10vw 0 0;
+    }
+
+    .team_child_contents .title {
+        font-size: 4.5vw;
+        letter-spacing: 1px;
+        margin: 0 0 3vw;
+    }
+
+    .team_child_contents .text {
+        font-size: 3.5vw;
+        line-height: 1.7;
+    }
+
+    .team_child_contents:nth-of-type(n + 2) {
+        margin: 8vw 0 0;
+    }
+
+    .team_child_contents .inner {
+        display: block;
+    }
+
+    .team_child_contents.second .textBox {
+        width: 100%;
+        margin-bottom: 4vw;
+    }
+
+    .team_child_contents.second .linkBox {
+        width: 100%;
+    }
+
+    .team_child_contents.second .linkBox a {
+        font-size: 3.7vw;
+    }
+
+    .team_child_contents.second .linkBox a .link_text {
+        padding: 2.5vw 0;
+        color: #fff;
+    }
+
+    .team_child_contents.second .linkBox a .link_text::before {
+        width: 100%;
+        height: 100%;
+    }
+
+    .team_child_contents.second .linkBox a .link_text::after {
+        width: 3.5vw;
+        background-image: url(/button_icon04.png);
+        background-size: 3.5vw;
+        right: 5vw;
+    }
+
+    /* スタッフ紹介 */
+    .member_list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5vw 4vw;
+    }
+
+    .member_list li .image {
+        margin: 0 0 2vw;
+    }
+
+    .member_list li .textBox .job {
+        font-size: 3.6vw;
+        margin: 0 0 0.5vw;
+    }
+
+    .member_list li .textBox .name {
+        font-size: 4.2vw;
+        margin: 0 0 0.5vw;
+    }
+
+    .member_list li .textBox .sub_name {
+        font-size: 3.2vw;
+    }
+
+    /* オフィス紹介 */
+    .page_office_about {
+        width: 100%;
+        margin: 0 0 10vw;
+        text-align: left;
+    }
+
+    h2.page_office_h2 {
+        font-size: 4.5vw;
+        margin-bottom: 6vw;
+    }
+
+    p.page_office_txt {
+        font-size: 3.5vw;
+    }
+
+    ul.office_pic_ul {
+        width: 100%;
+    }
+
+    ul.office_pic_ul li+li {
+        margin-top: 1.5vw;
+    }
+
+    /* 会社情報 */
+    .common_page_h1Box.company {
+        padding-bottom: 2.5vw;
+    }
+
+    .company_linkBox {
+        margin-top: 7vw;
+    }
+
+    .company_linkBox li.center {
+        margin: 0 7vw;
+    }
+
+    .company_linkBox li a {
+        font-size: 3.5vw;
+    }
+
+    .company_linkBox li a.pointer_none::before {
+        bottom: -2.75vw;
+    }
+
+    .company_tableBox table th,
+    .company_tableBox table td {
+        width: 100%;
+        display: block;
+        padding: 3vw;
+        font-size: 3.7vw;
+        letter-spacing: 0;
+    }
+
+    .company_tableBox table th {
+        padding-bottom: 0;
+        border-bottom: none;
+        color: #222;
+    }
+
+    .company_tableBox table td {
+        padding-top: 1vw;
+    }
+
+    /* 代表挨拶 */
+    .message_image {
+        margin-right: 0;
+    }
+
+    .message_titleBox {
+        position: static;
+        color: #f9a837;
+        margin: 5vw 0 0;
+    }
+
+    .message_titleBox .sub_title {
+        font-size: 4.2vw;
+        margin: 0 0 1vw;
+    }
+
+    .message_titleBox .title {
+        font-size: 5.8vw;
+    }
+
+    .message_text {
+        font-size: 3.7vw;
+        line-height: 1.7;
+        letter-spacing: 0;
+        margin: 3vw 0 6vw;
+    }
+
+    .message_name {
+        width: 53vw;
+    }
+
+    /* 会社沿革 */
+    .history_box .year {
+        width: 25%;
+    }
+
+    .history_box .year_num {
+        font-size: 8vw;
+        padding: 7vw 0;
+    }
+
+    .history_box .detail {
+        width: 75%;
+        padding: 8vw 0 8vw 4vw;
+    }
+
+    table.detail_table th {
+        display: block;
+        width: 100%;
+        font-size: 3.5vw;
+    }
+
+    table.detail_table td {
+        display: block;
+        width: 100%;
+        padding: 0 0 9vw;
+        font-size: 3.5vw;
+    }
+
+    table.detail_table th:before {
+        width: 1.6vw;
+        left: -5.2vw;
+        top: 2vw;
+    }
+
+    /* 個人情報保護方針 */
+    .privacy_text {
+        font-size: 3.7vw;
+        line-height: 1.7;
+        margin: 0 0 10vw;
+    }
+
+    .privacy_dl {
+        padding: 11vw 0 0;
+    }
+
+    .privacy_dl::before {
+        width: 20vw;
+    }
+
+    .privacy_dl dt {
+        font-size: 4vw;
+        margin: 0 0 2vw;
+    }
+
+    .privacy_dl dd {
+        font-size: 3.7vw;
+        line-height: 1.7;
+        margin: 0 0 6vw;
+    }
+
+    .privacy_contact {
+        padding: 7vw 5vw;
+        width: 100%;
+        margin: 10vw auto 0;
+        line-height: 1.7;
+    }
+
+    .privacy_contact .text {
+        font-size: 3.7vw;
+        margin: 0 0 3vw;
+    }
+
+    .privacy_contact .title {
+        font-size: 3.7vw;
+        margin: 0 0 3vw;
+    }
+
+    .privacy_contact .title span {
+        font-size: 4.2vw;
+        display: block;
+    }
+
+    .privacy_contact .tel {
+        font-size: 3.2vw;
+    }
+
+    .privacy_contact .tel a {
+        pointer-events: inherit;
+    }
+
+    .privacy_contact .mail {
+        font-size: 3.7vw;
+    }
+
+    .privacy_contact .common_button {
+        margin-top: 3vw;
+    }
+
+    /* サイトマップ */
+    #sitemap_list {
+        grid-template-columns: 1fr;
+        gap: 3vw 0;
+    }
+
+    #sitemap_list li a {
+        font-size: 3.7vw;
+        padding: 3vw 3vw 3vw 12vw;
+        background-size: 4vw;
+    }
+
+    #sitemap_list li a:hover {
+        box-shadow: none;
     }
 }

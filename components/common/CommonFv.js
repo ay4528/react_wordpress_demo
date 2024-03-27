@@ -40,8 +40,8 @@ const CommonFv = (props) => {
 
 			<div className={`common_page_h1Box ${pageslug}`}>
 				<div className="wrap02">
-					<h1 className="common_page_sub_h1">{title}</h1>
-					<p className="common_page_h1 arial_font">{subtitle}</p>
+					<p className="common_page_sub_h1 arial_font">{subtitle}</p>
+					<h1 className="common_page_h1">{title}</h1>
 					<CompanyLink />
 				</div>
 			</div>

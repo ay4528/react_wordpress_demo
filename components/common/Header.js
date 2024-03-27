@@ -1,9 +1,13 @@
+import Hamburger from "../parts/Hamburger"
+import CommonHead from "./CommonHead"
 import Link from "next/link"
 import Image from "next/image"
 
 const Header = () => {
 	return (
 		<>
+			<CommonHead/>
+
 			<div className="pc">
 				<header className="top_header">
 					<div className="wrap">
@@ -88,6 +92,7 @@ const Header = () => {
 						</a>
 					</div>
 				</div>
+				<Hamburger/>
 			</div>
 		</>
 	)
