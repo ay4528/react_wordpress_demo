@@ -147,7 +147,7 @@ const Footer = () => {
 									<Link href="/recruitment" target="_blank">RECRUIT</Link>
 								</li>
 								<li>
-									<Link href="/category/news">NEWS</Link>
+									<Link href="/news">NEWS</Link>
 								</li>
 								<li>
 									<Link href="/contact">CONTACT</Link>

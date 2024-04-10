@@ -1,32 +1,49 @@
 import { useState, useEffect } from "react"
-import useSWR from "swr"
+import axios from "axios"
 import Link from "next/link"
 
-async function fetcher(key) {
-	return fetch(key).then((res) => res.json())
-}
-
 const TopNews = () => {
-	const {data, error, isLoading} = useSWR("http://makesview-kawajiri.test.makesview-web25.penguin04.com/wp-json/wp/v2/posts", fetcher)
+	const [posts, setPost] = useState([])
 
-	if (error) return <div>エラーです</div>
-	if (isLoading) return <div>読み込み中</div>
+	useEffect(() => {
+		const getPosts = async () => {
+			const postNum = window.innerWidth > 750 ? '4' : '2'
+			axios.get(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts?per_page=${postNum}`)
+				.then((res) => {
+					setPost(res.data)
+				})
+				.catch((error) => {
+					console.log(error)
+				})
+		}
+		getPosts()
+	}, [])
+
+	const handleToDate = (date) => {
+		date = new Date(date);
+		date = date.getFullYear() + "." + (date.getMonth() % 12 + 1) + "." + date.getDate()
+		return date;
+	}
 
 	return (
 		<section className="top_news">
 			<div className="wrap02">
-				<div class="common_h2Box">
+				<div class="common_h2_box">
 					<p class="common_sub_h2 arial_font">NEWS</p>
 					<h2 class="common_h2">新着情報一覧</h2>
 				</div>
 				<div className="top_news_list">
-					{/* {data.map((post) => (
-						<div>
-							<Link href={post.link}>
-								<p>{post.title.rendered}</p>
-							</Link>
-						</div>
-					))} */}
+					<ul>
+						{posts.map((post) => (
+							<li key={post.id}>
+								<Link href={`/news/${post.id}`}>
+									<p className="category">NEWS</p>
+									<time className="date arial_font">{handleToDate(post.date)}</time>
+									<p className="title">{post.title.rendered}</p>
+								</Link>
+							</li>
+						))}
+					</ul>
 				</div>
 			</div>
 		</section>

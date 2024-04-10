@@ -55,7 +55,7 @@ const Header = () => {
 										<Link href="/office">OFFICE</Link>
 									</li>
 									<li>
-										<Link href="/category/news">NEWS</Link>
+										<Link href="/news">NEWS</Link>
 									</li>
 									<li className="menu_single">
 										<a className="pointer_none">COMPANY</a>

@@ -71,7 +71,7 @@ const Hamburger = () => {
 								<Link href="/office">OFFICE</Link>
 							</li>
 							<li>
-								<Link href="/category/news">NEWS</Link>
+								<Link href="/news">NEWS</Link>
 							</li>
 							<li>
 								<Accordion allowZeroExpanded>

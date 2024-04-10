@@ -1,7 +1,7 @@
 import Header from "../../components/common/Header"
 import TopMain from "../../components/pages/TopMain"
 import TopTeam from "../../components/pages/TopTeam"
-// import TopNews from "../../components/pages/TopNews"
+import TopNews from "../../components/pages/TopNews"
 import TopRecruit from "../../components/pages/TopRecruit"
 import TopBrand from "../../components/pages/TopBrand"
 import Footer from "../../components/common/Footer"
@@ -16,7 +16,7 @@ export const Home = () => {
 
 				<TopTeam/>
 
-				{/* <TopNews/> */}
+				<TopNews/>
 
 				<TopRecruit />
 
