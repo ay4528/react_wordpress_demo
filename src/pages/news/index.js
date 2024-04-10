@@ -12,7 +12,11 @@ const ArchiveNews = () => {
 	useEffect(() => {
 		const getPosts = async () => {
 			axios.get(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts`, {
-				mode: "no-cors"
+				method: 'HEAD',
+				mode: 'no-cors',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
 			})
 				.then((res) => {
 					setPost(res.data)
