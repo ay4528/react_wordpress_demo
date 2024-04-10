@@ -11,14 +11,7 @@ const ArchiveNews = () => {
 
 	useEffect(() => {
 		const getPosts = async () => {
-			axios.get(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts`, {
-				baseURL: 'http://localhost:3000',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				withCredentials: true,
-				crossDomain: true
-			})
+			axios.get(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts`)
 				.then((res) => {
 					setPost(res.data)
 				})
