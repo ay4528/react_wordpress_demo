@@ -24,18 +24,18 @@ const PostFv = (props) => {
 
 			<div className="common_page_h1Box news">
 				<div className="wrap02">
-					<p class="common_page_sub_h1 arial_font">NEWS</p>
-					<div class="inner">
-						<p class="category arial_font">NEWS</p>
-						<h1 class="common_page_h1">{title}</h1>
-						<time class="date arial_font">{date}</time>
-						<ul class="share">
-							<li class="twitter">
+					<p className="common_page_sub_h1 arial_font">NEWS</p>
+					<div className="inner">
+						<p className="category arial_font">NEWS</p>
+						<h1 className="common_page_h1">{title}</h1>
+						<time className="date arial_font">{date}</time>
+						<ul className="share">
+							<li className="twitter">
 								<Link href={`http://twitter.com/share?text=${title}&url=https://makes-view.co.jp${router.asPath}`} rel="nofollow" target="_blank">
 									<Image src="/twitter_share.png" width={160} height={40}/>
 								</Link>
 							</li>
-							<li class="facebook">
+							<li className="facebook">
 								<Link href={`https://www.facebook.com/sharer/sharer.php?u=https://makes-view.co.jp${router.asPath}`} target="_blank">
 									<Image src="/facebook_share.png" width={160} height={40}/>
 								</Link>

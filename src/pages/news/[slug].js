@@ -2,16 +2,29 @@ import Header from "../../../components/common/Header"
 import Footer from "../../../components/common/Footer"
 import PostFv from "../../../components/common/PostFv"
 import PageLayout from "../../../components/views/PageLayout"
-import axios from "axios"
 import parse from "html-react-parser"
 import Link from "next/link"
+import { gql } from "@apollo/client"
+import { client } from "../../../lib/api"
 
 export const getStaticPaths = async () => {
-	const posts = await axios.get(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts`)
+	const GET_POSTS = gql`
+		query getAllPostsSlugs {
+			posts {
+				nodes {
+					slug
+				}
+			}
+		}
+	`
+	const response = await client.query({
+		query: GET_POSTS,
+	})
+	const posts = response?.data?.posts?.nodes
 	return {
-		paths: posts.data.map((post) => ({
+		paths: posts.map((post) => ({
 			params: {
-				id: post.id.toString()
+				slug: post.slug
 			}
 		})),
 		fallback: false
@@ -19,10 +32,28 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-	const res = await axios.get(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts/${params.id}`)
+	const GET_POST = gql`
+		query getPostBySlug($slug: ID!) {
+			post(id: $slug, idType: SLUG) {
+				content
+				date
+				id
+				link
+				slug
+				title
+			}
+		}
+	`
+	const response = await client.query({
+		query: GET_POST,
+		variables: {
+            slug: params.slug
+        }
+	})
+	const post = response?.data?.post
 	return {
 		props: {
-			post: res.data
+			post
 		}
 	}
 }
@@ -38,17 +69,17 @@ const SinglePost = ({ post }) => {
 		<>
 			<Header />
 
-			<PostFv title={post.title.rendered} date={handleToDate(post.date)} />
+			<PostFv title={post.title} date={handleToDate(post.date)} />
 
 			<PageLayout>
 				<div className="single_page">
 					<div className="content">
 						<div className="wrap02">
-							{parse(post.content.rendered)}
+							{parse(post.content)}
 						</div>
 					</div>
 
-					<div class="ichiran_btn arial_font">
+					<div className="ichiran_btn arial_font">
 						<Link href="/news">NEWS</Link>
 					</div>
 				</div>

@@ -5,22 +5,36 @@ import PageLayout from "../../../components/views/PageLayout"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import Link from "next/link"
+import { gql } from "@apollo/client"
+import { client } from "../../../lib/api"
 
-const ArchiveNews = () => {
-	const [posts, setPost] = useState([])
-
-	useEffect(() => {
-		const getPosts = async () => {
-			axios.get(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts`)
-				.then((res) => {
-					setPost(res.data)
-				})
-				.catch((error) => {
-					console.log(error)
-				})
+export const getStaticProps = async () => {
+	const GET_POSTS = gql`
+		query getAllPosts {
+			posts {
+				nodes {
+					content
+					date
+					id
+					link
+					slug
+					title
+				}
+			}
 		}
-		getPosts()
-	}, [])
+	`
+	const response = await client.query({
+		query: GET_POSTS,
+	})
+	const posts = response?.data?.posts?.nodes
+	return {
+		props: {
+			posts
+		}
+	}
+}
+
+const ArchiveNews = ({ posts }) => {
 
 	const handleToDate = (date) => {
 		date = new Date(date);
@@ -46,14 +60,14 @@ const ArchiveNews = () => {
 							<ul>
 								{posts.map((post) => (
 									<li key={post.id}>
-										<Link href={`/news/${post.id}`}>
+										<Link href={`/news/${post.slug}`}>
 											<p className="cat arial_font">NEWS</p>
 											<div className="text_box">
 												<div className="title_box">
 													<p className="date arial_font">{handleToDate(post.date)}</p>
-													<p className="title">{post.title.rendered}</p>
+													<p className="title">{post.title}</p>
 												</div>
-												<p className="text">{handleContent(post.content.rendered)}</p>
+												<p className="text">{handleContent(post.content)}</p>
 											</div>
 										</Link>
 									</li>

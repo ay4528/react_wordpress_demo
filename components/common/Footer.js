@@ -7,7 +7,7 @@ const Footer = () => {
 			<section className="footer_contact">
 				<div className="wrap">
 					<Link href="/contact">
-						<svg className="circle" viewBox="0 0 60 60"><circle class="st0" cx="30" cy="30" r="28" /></svg>
+						<svg className="circle" viewBox="0 0 60 60"><circle className="st0" cx="30" cy="30" r="28" /></svg>
 						<h2 className="title arial_font">CONTACT US</h2>
 						<p className="text">
 							ご依頼やご相談<br />採用に関してのお問い合わせはこちら
@@ -143,7 +143,7 @@ const Footer = () => {
 								<li>
 									<Link href="/office">OFFICE</Link>
 								</li>
-								<li class="ft_recruit">
+								<li className="ft_recruit">
 									<Link href="/recruitment" target="_blank">RECRUIT</Link>
 								</li>
 								<li>

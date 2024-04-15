@@ -15,7 +15,7 @@ const TopRecruit = () => {
 					</div>
 					<div className="right_box">
 						<h3 className="title">働く楽しみが<br />人生に幸せをもたらす</h3>
-						<p className="text">人生において働く以外の時間で幸せを感じることは大切です。さらに働くことも楽しいと思えたら、それって最高に幸せな人生だと私たちは考えます。<br class="pc" />メイクスビューで働く楽しさを一緒に体感しませんか？</p>
+						<p className="text">人生において働く以外の時間で幸せを感じることは大切です。さらに働くことも楽しいと思えたら、それって最高に幸せな人生だと私たちは考えます。<br className="pc" />メイクスビューで働く楽しさを一緒に体感しませんか？</p>
 						<p className="link arial_font">
 							<Link href="/recruitment" target="_blank">RECRUIT SITE</Link>
 						</p>

@@ -103,8 +103,8 @@ const Hamburger = () => {
 							</li>
 						</ul>
 					</div>
-					<div class="sp_sub_menu">
-						<div class="sub_menu arial_font">
+					<div className="sp_sub_menu">
+						<div className="sub_menu arial_font">
 							<p className="text">
 								<Link href="/privacy">PRIVACY POLICY</Link>
 							</p>
@@ -112,7 +112,7 @@ const Hamburger = () => {
 								<Link href="/sitemap">SITE MAP</Link>
 							</p>
 						</div>
-						<div class="sp_partner">
+						<div className="sp_partner">
 							<Image src="/partner_icon.svg" width={61} height={41} alt="Google Partner" />
 						</div>
 					</div>
