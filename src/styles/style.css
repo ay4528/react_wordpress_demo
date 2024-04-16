@@ -1869,7 +1869,8 @@ table.detail_table td a {
 }
 
 .common_contact_form input[type="text"],
-.common_contact_form input[type="email"] {
+.common_contact_form input[type="email"],
+.common_contact_form input[type="tel"] {
     width: 85%;
     line-height: 44px;
     border: 1px solid #A4A4A4;
@@ -3051,7 +3052,8 @@ table.detail_table td a {
     }
 
     .common_contact_form input[type="text"],
-    .common_contact_form input[type="email"] {
+    .common_contact_form input[type="email"],
+    .common_contact_form input[type="tel"] {
         width: 100%;
         line-height: 12vw;
     }
