@@ -5,7 +5,6 @@ import TopNews from "../../components/pages/TopNews"
 import TopRecruit from "../../components/pages/TopRecruit"
 import TopBrand from "../../components/pages/TopBrand"
 import Footer from "../../components/common/Footer"
-import { useState, useEffect } from "react"
 import { gql } from "@apollo/client"
 import { client } from "../../lib/api"
 
